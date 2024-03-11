@@ -186,12 +186,18 @@ pri čemu `-m 22100` predstavlja hash mode za BitLocker, `xyz` predstavlja **HIN
 Nakon toga ažurirajte python skriptu da biste realizirali napad:
 
 ```python
-hashcat_cmd = f'hashcat -m 22100 -a 3 {recovery_key[0]} "xyz?d?d?d?d?d"'
+output_file = hash.txt
+hashcat_cmd = f'hashcat -m 22100 -a 3 {recovery_key[0]} --potfile-disable --remove --outfile {output_file} "xyzk?d?d?d?d"'
 process = subprocess.call(hashcat_cmd, shell=True)
 
-cracked_password = subprocess.check_output([hashcat_cmd + " --show"], shell=True).decode()
-cracked_password = cracked_password.split(':')[-1]
-print(f"Password : {cracked_password}")
+
+
+# Execute hashcat command using subprocess
+try:
+    output = subprocess.check_output(hashcat_cmd, shell=True)
+    print(output.decode("utf-8"))
+except subprocess.CalledProcessError as e:
+    print(f"Error executing hashcat command: {e}")
 ```
 
 U pozadini, Hashcat radi pogađa ključ prema sljedećem pseudokodu:
