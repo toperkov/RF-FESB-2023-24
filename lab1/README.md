@@ -76,7 +76,31 @@ verify_image_hash(image_path, given_hash)
 
 ### Izvlačenje hash vrijednosti - [John the Ripper](https://www.openwall.com/john/)
 
-Na računalu sačuvajte sigurnosnu kopiju USB-a koji je enkriptiran BitLockerom. Nakon toga, skinite verziju alata John the Ripper na ovom [LINK-u](https://www.openwall.com/john/k/john-1.9.0-jumbo-1-win64.7z) te ga raspakirajte. U nastavku izvucite hash korištenjem `bitlocker2john` alata. Trebali bi dobiti nešto slično u nastavku:
+Na računalu sačuvajte sigurnosnu kopiju USB-a koji je enkriptiran BitLockerom. Nakon toga, skinite verziju alata John the Ripper na ovom [LINK-u](https://fesb-my.sharepoint.com/:u:/g/personal/toperkov_fesb_hr/EYTWFYb1RkBDkUrBcTfucmcB9TJEFSjTEeiwfVcsCIV63g?download=1) te ga raspakirajte. To možete postići tako da kombinirate kod iz prvog dijela zadatka sa ovim dolje. Prije korištenja instalirajte biblioteku `pyunpack`:
+
+```python
+pip install pyunpack
+```
+
+```python
+from pyunpack import Archive
+import os
+
+def create_directory(directory_path):
+    try:
+        os.makedirs(directory_path, exist_ok=True)
+        print(f"Directory '{directory_path}' created or already exists.")
+    except Exception as e:
+        print(f"Failed to create directory '{directory_path}': {e}")
+
+# Example usage
+directory_path = 'john-1.9.0-jumbo-1-win64'
+create_directory(directory_path)
+
+Archive('john-1.9.0-jumbo-1-win64.zip').extractall("john-1.9.0-jumbo-1-win64")
+```
+
+U nastavku izvucite hash korištenjem `bitlocker2john` alata. Trebali bi dobiti nešto slično u nastavku:
 
 ```python
 Signature found at 0x00010003
