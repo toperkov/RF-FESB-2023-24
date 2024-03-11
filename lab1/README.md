@@ -186,7 +186,7 @@ pri čemu `-m 22100` predstavlja hash mode za BitLocker, `xyz` predstavlja **HIN
 Nakon toga ažurirajte python skriptu da biste realizirali napad:
 
 ```python
-output_file = hash.txt
+output_file = "hash.txt"
 hashcat_cmd = f'hashcat -m 22100 -a 3 {recovery_key[0]} --potfile-disable --remove --outfile {output_file} "xyzk?d?d?d?d"'
 process = subprocess.call(hashcat_cmd, shell=True)
 
