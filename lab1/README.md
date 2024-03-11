@@ -190,8 +190,6 @@ output_file = hash.txt
 hashcat_cmd = f'hashcat -m 22100 -a 3 {recovery_key[0]} --potfile-disable --remove --outfile {output_file} "xyzk?d?d?d?d"'
 process = subprocess.call(hashcat_cmd, shell=True)
 
-
-
 # Execute hashcat command using subprocess
 try:
     output = subprocess.check_output(hashcat_cmd, shell=True)
