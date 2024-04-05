@@ -7,5 +7,5 @@ Laboratorijske vježbe iz kolegija Računalna forenzika - FESB
 - [Lab 1 - BitLocker i dekripcija diska](lab1/README.md)
 - [Lab 2 - Razumijevanje *hash* funkcija, ekstenzija dokumenata](lab2/README.md)
 - [Lab 3 - Forenzika USB uređaja](lab3/README.md)
-- Lab 4 - Metapodaci
+- [Lab 4 - Metapodaci](lab4/README.md)
 - ...
