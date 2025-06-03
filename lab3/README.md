@@ -30,7 +30,7 @@ Ovdje je navedn primjer kostura koda
 import re
 import datetime
 
-# Read the contents of the setupapi.dev.log file
+# Read the contents of the setupapi.dev2.log file
 with open(log_path, "r") as log_file:
      # Store information about each USB device in a dictionary
      for line in log_file:
