@@ -37,7 +37,7 @@ with open(log_path, "r") as log_file:
      # Find all USB device installation events and extract information about each device
 ```
 
-Upotrijebite sljedeći regularni izraz da nađete sve USB uređaje - možete koristiti `re.match` finkciju:
+Upotrijebite sljedeći regularni izraz da nađete sve USB uređaje - možete koristiti `re.match` funkciju:
 
 ```python
 r'^>>>  \[Device Install.*#(Disk&Ven_[A-Za-z0-9]+)&(Prod_([\w\s\S]+?))&(Rev_([\w\s\S]+?))#([\w\s\S]+?)#.*\]'
