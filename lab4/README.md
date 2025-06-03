@@ -38,7 +38,7 @@ def figMetaData(file_path):
 
 
 def pdfMetaData(file_path):
-    pdf_doc = PdfReader(open(path, "rb"))
+    pdf_doc = PdfReader(open(file_path, "rb"))
     if pdf_doc.is_encrypted:
         pdf_doc.decrypt("PASSWORD_GOES_HERE")
 
